@@ -1,0 +1,50 @@
+slam-hive-algorithm: vins-mono
+slam-hive-dataset: MH_02_easy
+algorithm-parameters:
+  max_cnt: 150
+  min_dist: 30
+  freq: 10
+  F_threshold: 1.0
+  show_track: 1
+  equalize: 1
+  fisheye: 0
+  max_solver_time: 0.04
+  max_num_iterations: 8
+  keyframe_parallax: 10.0
+  loop_closure: 1
+  load_previous_pose_graph: 0
+  fast_relocalization: 0
+  save_image: 1
+  visualize_imu_forward: 0
+  visualize_camera_size: 0.4
+dataset-parameters:
+  model_type: PINHOLE
+  camera_name: camera
+  image_width: 752
+  image_height: 480
+  k1: -2.917e-01
+  k2: 8.228e-02
+  p1: 5.333e-05
+  p2: -1.578e-04
+  fx: 4.616e+02
+  fy: 4.603e+02
+  cx: 3.630e+02
+  cy: 2.481e+02
+  estimate_extrinsic: 0
+  extrinsicRotation: [0.0148655429818, -0.999880929698, 0.00414029679422,
+0.999557249008, 0.0149672133247, 0.025715529948,
+-0.0257744366974, 0.00375618835797, 0.999660727178]
+  extrinsicTranslation: [-0.0216401454975, 0.064676986768, 0.00981073058949]
+  acc_n: 0.08
+  gyr_n: 0.004
+  acc_w: 0.00004
+  gyr_w: 2.0e-6
+  g_norm: 9.81007
+  estimate_td: 0
+  td: 0.0
+  rolling_shutter: 0
+  rolling_shutter_tr: 0
+  imu_topic: /imu0
+  image_topic: /cam0/image_raw
+algorithm-remap:
+dataset-remap:

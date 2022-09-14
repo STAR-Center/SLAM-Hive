@@ -1,0 +1,16 @@
+<!-- Usage: rosrun ORB_SLAM2 Stereo path_to_vocabulary path_to_settings do_rectify -->
+<launch>
+    <arg name ="stereo_left" default="/camera/left/image_raw"/>
+    <arg name ="stereo_right" default="/camera/right/image_raw"/>
+    <param name = "use_sim_time" value = "true"/>
+    <arg name="vocabulary_path" default="/home/ORB_SLAM2/Vocabulary/ORBvoc.txt"/>
+    <arg name="settings_path" default="/slamhive/mappingtask.yaml"/>
+    <arg name="do_rectify" default="true"/>
+
+    <node name="orb_node" type="Stereo" pkg="ORB_SLAM2"
+        args="$(arg vocabulary_path) $(arg settings_path) $(arg do_rectify)" cwd="node"  output="screen" >
+        
+        <remap from="/camera/left/image_raw" to="$(arg stereo_left)"/>
+        <remap from="/camera/right/image_raw" to="$(arg stereo_right)"/>
+    </node> 
+</launch>

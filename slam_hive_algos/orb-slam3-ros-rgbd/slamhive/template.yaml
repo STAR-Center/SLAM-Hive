@@ -1,0 +1,71 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera1.fx: $fx
+Camera1.fy: $fy
+Camera1.cx: $cx
+Camera1.cy: $cy
+
+Camera1.k1: $k1
+Camera1.k2: $k2
+Camera1.p1: $p1
+Camera1.p2: $p2
+Camera1.k3: $k3
+
+Camera.width: $width
+Camera.height: $height
+
+# Camera frames per second 
+Camera.fps: $fps
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: $RGB
+
+# Close/Far threshold. Baseline times.
+Stereo.ThDepth: $ThDepth
+Stereo.b: $baseline
+
+# Depth map values factor
+RGBD.DepthMapFactor: $DepthMapFactor # 1.0 for ROS_bag
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: $nFeatures
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: $scaleFactor
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: $nLevels
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: $iniThFAST
+ORBextractor.minThFAST: $minThFAST
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0
+

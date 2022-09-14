@@ -1,0 +1,82 @@
+%YAML:1.0
+
+#common parameters
+imu_topic: "$imu_topic"
+image_topic: "$image_topic"
+output_path: "/home/shaozu/output/"
+
+
+#camera calibration 
+model_type: $model_type
+camera_name: $camera_name
+image_width: $image_width
+image_height: $image_height
+distortion_parameters:
+   k1: $k1
+   k2: $k2
+   p1: $p1
+   p2: $p2
+projection_parameters:
+   fx: $fx
+   fy: $fy
+   cx: $cx
+   cy: $cy
+
+# Extrinsic parameter between IMU and Camera.
+estimate_extrinsic: $estimate_extrinsic   
+                        # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+                        # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
+                        # 2  Don't know anything about extrinsic parameters. You don't need to give R,T. We will try to calibrate it. Do some rotation movement at beginning.                        
+#If you choose 0 or 1, you should write down the following matrix.
+#Rotation from camera frame to imu frame, imu^R_cam
+extrinsicRotation: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: $extrinsicRotation
+#Translation from camera frame to imu frame, imu^T_cam
+extrinsicTranslation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: $extrinsicTranslation
+
+#feature traker paprameters
+max_cnt: $max_cnt            # max feature number in feature tracking
+min_dist: $min_dist            # min distance between two features 
+freq: $freq                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+F_threshold: $F_threshold        # ransac threshold (pixel)
+show_track: $show_track          # publish tracking image as topic
+equalize: $equalize             # if image is too dark or light, trun on equalize to find enough features
+fisheye: $fisheye              # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
+
+#optimization parameters
+max_solver_time: $max_solver_time  # max solver itration time (ms), to guarantee real time
+max_num_iterations: $max_solver_time   # max solver itrations, to guarantee real time
+keyframe_parallax: $max_solver_time # keyframe selection threshold (pixel)
+
+#imu parameters       The more accurate parameters you provide, the better performance
+acc_n: $acc_n         # accelerometer measurement noise standard deviation. #0.2   0.04
+gyr_n: $gyr_n         # gyroscope measurement noise standard deviation.     #0.05  0.004
+acc_w: $acc_w         # accelerometer bias random work noise standard deviation.  #0.02
+gyr_w: $gyr_w         # gyroscope bias random work noise standard deviation.     #4.0e-5
+g_norm: $g_norm       # gravity magnitude
+
+#loop closure parameters
+loop_closure: $loop_closure                    # start loop closure
+load_previous_pose_graph: $load_previous_pose_graph        # load and reuse previous pose graph; load from 'pose_graph_save_path'
+fast_relocalization: $fast_relocalization             # useful in real-time and large project
+pose_graph_save_path: "/home/shaozu/output/pose_graph/" #save and load path
+
+#unsynchronization parameters
+estimate_td: $estimate_td                      # online estimate time offset between camera and imu
+td: $td                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
+
+#rolling shutter parameters
+rolling_shutter: $rolling_shutter                    # 0: global shutter camera, 1: rolling shutter camera
+rolling_shutter_tr: $rolling_shutter_tr              # unit: s. rolling shutter read out time per frame (from data sheet). 
+
+#visualization parameters
+save_image: $save_image                   # save image in pose graph for visualization prupose; you can close this function by setting 0 
+visualize_imu_forward: $visualize_imu_forward        # output imu forward propogation to achieve low latency and high frequence results
+visualize_camera_size: $visualize_camera_size      # size of camera marker in RVIZ

@@ -1,0 +1,23 @@
+slam-hive-algorithm: orb-slam2-ros-mono
+slam-hive-dataset: MH_02_easy
+algorithm-parameters:
+  nFeatures: 1000
+  scaleFactor: 1.2
+  nLevels: 8
+  iniThFAST: 20
+  minThFAST: 7
+dataset-parameters:
+  fx: 458.654
+  fy: 457.296
+  cx: 367.215
+  cy: 248.375
+  k1: -0.28340811
+  k2: 0.07395907
+  p1: 0.00019359
+  p2: 1.76187114e-05
+  fps: 20.0
+  RGB: 1
+algorithm-remap:
+  mono_topic: /camera/image_raw
+dataset-remap:
+  /camera/image_raw: /cam0/image_raw

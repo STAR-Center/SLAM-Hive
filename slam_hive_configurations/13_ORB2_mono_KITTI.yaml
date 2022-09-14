@@ -1,0 +1,23 @@
+slam-hive-algorithm: orb-slam2-ros-mono
+slam-hive-dataset: kitti_2011_10_03_drive_0027_synced
+algorithm-parameters:
+  nFeatures: 2000
+  scaleFactor: 1.2
+  nLevels: 8
+  iniThFAST: 20
+  minThFAST: 7
+dataset-parameters:
+  fx: 718.856
+  fy: 718.856
+  cx: 607.1928
+  cy: 185.2157
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  fps: 10.0
+  RGB: 1
+algorithm-remap:
+  mono_topic: /camera/image_raw
+dataset-remap:
+  /camera/image_raw: /kitti/camera_gray_left/image

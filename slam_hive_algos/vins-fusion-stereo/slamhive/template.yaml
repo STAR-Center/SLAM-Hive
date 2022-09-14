@@ -1,0 +1,50 @@
+%YAML:1.0
+
+#common parameters
+#support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
+imu: 0         
+num_of_cam: 2  
+
+imu_topic: "/imu0"
+image0_topic: "$image0_topic"
+image1_topic: "$image1_topic"
+output_path: "/home/output"
+
+cam0_calib: "cam0_mei.yaml"
+cam1_calib: "cam1_mei.yaml"
+image_width: $image_width
+image_height: $image_height
+   
+
+# Extrinsic parameter between IMU and Camera.
+estimate_extrinsic: $estimate_extrinsic   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+                        # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
+
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: $body_T_cam0
+
+body_T_cam1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: $body_T_cam1
+#Multiple thread support
+multiple_thread: 1
+
+
+
+#feature traker paprameters
+max_cnt: $max_cnt            # max feature number in feature tracking
+min_dist: $min_dist          # min distance between two features 
+freq: $freq                  # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+F_threshold: $F_threshold    # ransac threshold (pixel)
+show_track: $show_track      # publish tracking image as topic
+flow_back: $flow_back        # perform forward and backward optical flow to improve feature tracking accuracy
+
+#optimization parameters
+max_solver_time: $max_solver_time         # max solver itration time (ms), to guarantee real time
+max_num_iterations: $max_num_iterations   # max solver itrations, to guarantee real time
+keyframe_parallax: $keyframe_parallax

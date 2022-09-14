@@ -1,0 +1,1 @@
+docker build --tag slam-hive-evaluation:evo -f ./Dockerfile .

@@ -1,0 +1,40 @@
+slam-hive-algorithm: vins-fusion-mono-imu
+slam-hive-dataset: MH_02_easy
+algorithm-parameters:
+  max_cnt: 150
+  min_dist: 30
+  freq: 10
+  F_threshold: 1.0
+  show_track: 1
+  flow_back: 1
+  max_solver_time: 0.04
+  max_num_iterations: 8
+  keyframe_parallax: 10.0
+dataset-parameters:
+  xi: 3.6313355285286337e+00
+  k1: 1.1757726639872075e+00
+  k2: 1.5491281051140213e+01
+  p1: -8.1237172954550494e-04
+  p2: 6.7297684030310243e-04
+  gamma1: 2.1387619122017772e+03
+  gamma2: 2.1315886210259278e+03
+  u0: 3.6119856633263799e+02
+  v0: 2.4827644773395667e+02
+  imu_topic: /imu0
+  image0_topic: /cam0/image_raw
+  acc_n: 0.1
+  gyr_n: 0.01
+  acc_w: 0.001
+  gyr_w: 0.0001
+  g_norm: 9.81007
+  image_width: 752
+  image_height: 480
+  estimate_extrinsic: 0
+  estimate_td: 0
+  td: 0.0
+  body_T_cam0: [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+           0.999557249008, 0.0149672133247, 0.025715529948,  -0.064676986768,
+           -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+           0, 0, 0, 1]
+algorithm-remap:
+dataset-remap:

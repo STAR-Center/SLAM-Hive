@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+model_type: MEI
+camera_name: camera
+image_width: $image_width
+image_height: $image_height
+mirror_parameters:
+   xi: $cam0_xi
+distortion_parameters:
+   k1: $cam0_k1
+   k2: $cam0_k2
+   p1: $cam0_p1
+   p2: $cam0_p2
+projection_parameters:
+   gamma1: $cam0_gamma1
+   gamma2: $cam0_gamma2
+   u0: $cam0_u0
+   v0: $cam0_v0

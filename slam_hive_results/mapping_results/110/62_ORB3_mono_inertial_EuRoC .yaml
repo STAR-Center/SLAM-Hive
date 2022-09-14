@@ -1,0 +1,38 @@
+slam-hive-algorithm: orb-slam3-ros-mono-inertial
+slam-hive-dataset: MH_02_easy
+algorithm-parameters:
+  nFeatures: 1000
+  scaleFactor: 1.2
+  nLevels: 8
+  iniThFAST: 20
+  minThFAST: 7
+dataset-parameters:
+  fx: 458.654
+  fy: 457.296
+  cx: 367.215
+  cy: 248.375
+  k1: -0.28340811
+  k2: 0.07395907
+  p1: 0.00019359
+  p2: 1.76187114e-05
+  width: 752
+  height: 480
+  newWidth: 600
+  newHeight: 350
+  fps: 20
+  RGB: 1
+  NoiseGyro: 1.7e-4
+  NoiseAcc: 2.0000e-3
+  GyroWalk: 1.9393e-05
+  AccWalk: 3.0000e-03
+  Frequency: 200.0
+  T_b_c1: [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+         0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+        -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+         0.0, 0.0, 0.0, 1.0]
+algorithm-remap:
+  mono_topic: /camera/image_raw
+  imu_topic: /imu
+dataset-remap:
+  /camera/image_raw: /cam0/image_raw
+  /imu: /imu0

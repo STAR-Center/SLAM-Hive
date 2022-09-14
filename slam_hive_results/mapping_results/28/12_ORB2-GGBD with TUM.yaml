@@ -1,0 +1,31 @@
+slam-hive-algorithm: orb-slam2-ros-rgbd
+slam-hive-dataset: rgbd_dataset_freiburg1_xyz
+algorithm-parameters:
+  nFeatures: 1100
+  scaleFactor: 1.2
+  nLevels: 8
+  iniThFAST: 20
+  minThFAST: 7
+dataset-parameters:
+  fps: 30.0
+  RGB: 1
+  bf: 40.0
+  ThDepth: 40.0
+  fx: 517.306408
+  fy: 516.469215
+  cx: 318.643040
+  cy: 255.313989
+  k1: 0.262383
+  k2: -0.953104
+  p1: -0.005358
+  p2: 0.002628
+  k3: 1.163314
+  width: 640
+  height: 480
+  DepthMapFactor: 1.0
+algorithm-remap:
+  rgb_topic: /slamhive/camera/rgb
+  dep_topic: /slamhive/camera/depth
+dataset-remap:
+  /slamhive/camera/rgb: /camera/rgb/image_color
+  /slamhive/camera/depth: /camera/depth/image

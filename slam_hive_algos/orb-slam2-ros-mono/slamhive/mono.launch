@@ -1,0 +1,12 @@
+<launch>
+    <arg name ="mono_topic" default="/camera/image_raw"/>
+    <param name = "use_sim_time" value = "true"/>
+    <arg name="vocabulary_path" default="/home/ORB_SLAM2/Vocabulary/ORBvoc.txt"/>
+    <arg name="settings_path" default="/slamhive/mappingtask.yaml"/>
+
+    <node name="orb_node" type="Mono" pkg="ORB_SLAM2"
+        args="$(arg vocabulary_path) $(arg settings_path)" cwd="node"  output="screen" >
+        
+        <remap from="/camera/image_raw" to="$(arg mono_topic)"/>
+    </node> 
+</launch>

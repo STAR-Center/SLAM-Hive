@@ -1,0 +1,1 @@
+docker build --tag slam-hive-algorithm:orb-slam3-ros-stereo -f ./Dockerfile .
