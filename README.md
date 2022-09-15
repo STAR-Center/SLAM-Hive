@@ -5,8 +5,9 @@ Install Docker and docker-compose: <https://www.docker.com>
 ## 2. Build SLAM algorithm images
 We provide some SLAM algorithms Dockerfile and running scripts, here is an example to build an image:
 ```
-$ git clone http://star-center.shanghaitech.edu.cn/gitlab/slam-hive/slam_hive.git SLAM_Hive
+$ git clone https://github.com/STAR-Center/SLAM-Hive.git SLAM_Hive
 $ cd SLAM_Hive/slam_hive_algos/orb-slam2-ros-mono
+$ sudo chmod +x install.sh
 $ ./install.sh
 ```
 You can check whether the image is successfully built as follows:
@@ -35,7 +36,7 @@ slam-hive-algorithm    orb-slam3-ros-stereo-inertial    28c13955a331   9 days ag
 slam-hive-algorithm    orb-slam3-ros-rgbd               28c13955a331   9 days ago      4.17GB
 slam-hive-algorithm    lio-sam                          99b1395a3b41   9 days ago      3.15GB
 ```
-
+If the image construction speed is very slow, it is recommended to find the Dockerfile in the corresponding folder and change the source list: `/etc/apt/sources.list`
 
 ## 3. Download datasets
 If there is not enough space on your computer, run the following command to download two datasets: `MH_01_easy.bag` (2.7G), `rgbd_dataset_freiburg2_desk.bag` (2.2 GB).
@@ -49,6 +50,7 @@ We also provide download script for other datasets: `SLAM_Hive/slam_hive_dataset
 
 ```
 $ cd SLAM_Hive/slam_hive_web
+$ sudo chmod -R 777 db/data
 $ docker-compose up
 ```
 Then,open your browser and visit: <http://127.0.0.1:5000>

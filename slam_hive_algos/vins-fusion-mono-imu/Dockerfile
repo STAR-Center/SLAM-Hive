@@ -20,16 +20,6 @@ RUN   if [ "x$(nproc)" = "x1" ] ; then export USE_PROC=1 ; \
       rm -rf /var/lib/apt/lists/* 
 
 
-    #   # Build and install Ceres
-    #   git clone https://ceres-solver.googlesource.com/ceres-solver && \
-    #   cd ceres-solver && \
-    #   git checkout tags/${CERES_VERSION} && \
-    #   mkdir build && cd build && \
-    #   cmake .. && \
-    #   make -j$(USE_PROC) install && \
-    #   rm -rf ../../ceres-solver && \
-    #   mkdir -p $CATKIN_WS/src/VINS-Fusion/
-
 RUN   git clone https://github.com/ceres-solver/ceres-solver.git && \
       cd ceres-solver && \
       git checkout tags/${CERES_VERSION} && \
@@ -43,13 +33,7 @@ WORKDIR $CATKIN_WS
 RUN   mkdir src
 COPY  VINS-Fusion $CATKIN_WS/src/VINS-Fusion
 
-# Copy VINS-Fusion
-# COPY ./ $CATKIN_WS/src/VINS-Fusion/
-# use the following line if you only have this dockerfile
-# RUN git clone https://github.com/HKUST-Aerial-Robotics/VINS-Fusion.git
-
 # Build VINS-Fusion
-
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
 RUN catkin config \

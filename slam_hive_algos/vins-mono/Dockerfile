@@ -28,11 +28,6 @@ RUN   git clone https://github.com/ceres-solver/ceres-solver.git && \
       make install && \
       rm -rf ../../ceres-solver 
       
-# RUN   mkdir src && \
-#       cd src && \
-#       git clone https://github.com/YYYBittersweet/VINS-Mono.git
-#       # git clone http://star-center.shanghaitech.edu.cn/gitlab/slam-hive/slam-algorithms/VINS-Mono.git
-#       # git clone https://github.com/HKUST-Aerial-Robotics/VINS-Mono.git
 
 RUN   mkdir src
 COPY  VINS-Mono /home/catkin_ws/src/VINS-Mono

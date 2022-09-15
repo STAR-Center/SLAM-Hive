@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN cd /tmp && wget https://github.com/stevenlovegrove/Pangolin/archive/refs/tags/v0.6.zip
 RUN cd /tmp && unzip v0.6.zip && cd Pangolin-0.6 &&  mkdir build && cd build && cmake  .. \
-&& make -j4 && make install 
+&& make && make install 
 
 
 ENV OPENCV 3.4.15
@@ -26,7 +26,7 @@ RUN cd /tmp && wget https://codeload.github.com/opencv/opencv/zip/$OPENCV -O ope
 && unzip opencv.zip \
 && cd opencv-$OPENCV && mkdir build && cd build \
 && cmake -D CMAKE_BUILD_TYPE=RELEASE -D WITH_CUDA=OFF -D WITH_OPENGL=OFF .. \
-&& make -j4 && make install 
+&& make && make install 
 
 RUN cd /tmp && wget https://gitlab.com/libeigen/eigen/-/archive/3.1.0/eigen-3.1.0.zip
 RUN cd /tmp && unzip eigen-3.1.0.zip  && cd eigen-3.1.0 && mkdir build && cd build \
